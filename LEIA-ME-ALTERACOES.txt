@@ -1,0 +1,32 @@
+O QUE FOI FEITO
+
+1. História da Arte I e Constelações agora usam o mesmo design system:
+   - Cormorant Garamond para títulos;
+   - Instrument Sans para textos e navegação;
+   - mesma paleta de papel quente, terracota, bordas e modo escuro;
+   - mesma memória de tema no navegador.
+
+2. O HA1DI ganhou botão de modo claro/escuro no cabeçalho.
+
+3. O HA1DI ganhou referência direta ao projeto Constelações no menu e na página inicial.
+
+4. As imagens passaram a usar uma composição inspirada nas paredes cheias dos Salões do século XIX:
+   - molduras;
+   - tamanhos e proporções diferentes;
+   - pequenas rotações;
+   - grade responsiva para computador e celular.
+
+5. Para apontar o botão Constelações para o site publicado, crie no Vercel do HA1DI:
+   Nome: VITE_CONSTELACOES_URL
+   Valor: endereço público do seu projeto Constelações
+
+Sem essa variável, o botão abre o repositório GitHub:
+https://github.com/debagrs/constalacoes
+
+COMO SUBIR
+
+1. Abra o repositório HA1DI no GitHub.
+2. Apague os arquivos antigos ou envie esta pasta inteira substituindo tudo.
+3. Faça Commit changes.
+4. Aguarde o Vercel publicar.
+5. Repita o processo com a pasta constalacoes-main no repositório Constelações.
