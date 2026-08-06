@@ -1,7 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight, CalendarDays, Clock, MapPin } from "lucide-react";
 import { aulas, formatarData, getAula, tipoLabel, type Aula } from "@/data/aulas";
-import { BotaoAgenda } from "@/components/BotaoAgenda";
 
 export const Route = createFileRoute("/aulas/$numero")({
   loader: ({ params }) => {
@@ -85,9 +84,6 @@ function PaginaAula() {
             </li>
           </ul>
 
-          <div className="mt-8">
-            <BotaoAgenda numero={aula.numero} />
-          </div>
         </div>
       </header>
 
