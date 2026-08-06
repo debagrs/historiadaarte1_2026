@@ -1,7 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Clock, ExternalLink, MapPin } from "lucide-react";
 import { aulas, formatarData, marcosAcademicos, semestre, tipoLabel } from "@/data/aulas";
-import { BotaoAgenda } from "@/components/BotaoAgenda";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -106,12 +105,7 @@ function Index() {
             >
               Ver os 15 encontros <ArrowRight className="h-4 w-4" />
             </Link>
-            <BotaoAgenda variante="discreto" />
           </div>
-          <p className="mt-3 max-w-xl text-xs text-muted-foreground">
-            A sincronização cria (ou atualiza) os 15 encontros na sua agenda Google, com temas do dia,
-            tarefas resumidas e link para a imagem de cada aula.
-          </p>
         </div>
       </section>
 
