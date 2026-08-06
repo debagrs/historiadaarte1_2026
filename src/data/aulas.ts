@@ -158,7 +158,7 @@ export const aulas: Aula[] = [
   {
     numero: 3,
     slug: "3",
-    titulo: "Super-aula 1",
+    titulo: "Aula teórica 1",
     subtitulo: "Das primeiras imagens ao mundo clássico",
     data: "2026-08-21",
     inicio: "08:30",
@@ -179,7 +179,7 @@ export const aulas: Aula[] = [
       "Reprodução e circulação de modelos",
     ],
     blocos: [
-      { duracao: "60 min", titulo: "Super-aula: das primeiras imagens ao mundo clássico" },
+      { duracao: "60 min", titulo: "Aula teórica: das primeiras imagens ao mundo clássico" },
       { duracao: "10 min", titulo: "Intervalo" },
       { duracao: "80 min", titulo: "Ateliê: ficha comparativa" },
       { duracao: "30 min", titulo: "Compartilhamento e abertura do Projeto 1" },
@@ -235,7 +235,7 @@ export const aulas: Aula[] = [
   {
     numero: 5,
     slug: "5",
-    titulo: "Super-aula 2",
+    titulo: "Aula teórica 2",
     subtitulo: "Imagens, espaços e objetos medievais",
     data: "2026-09-04",
     inicio: "08:30",
@@ -257,7 +257,7 @@ export const aulas: Aula[] = [
       "Circulação de técnicas entre culturas",
     ],
     blocos: [
-      { duracao: "60 min", titulo: "Super-aula: imagens, espaços e objetos medievais" },
+      { duracao: "60 min", titulo: "Aula teórica: imagens, espaços e objetos medievais" },
       { duracao: "10 min", titulo: "Intervalo" },
       { duracao: "80 min", titulo: "Ateliê de tradução de sistemas visuais" },
       { duracao: "30 min", titulo: "Compartilhamento e Projeto 1" },
@@ -313,7 +313,7 @@ export const aulas: Aula[] = [
   {
     numero: 7,
     slug: "7",
-    titulo: "Super-aula 3",
+    titulo: "Aula teórica 3",
     subtitulo: "Renascimento, Maneirismo e Barroco",
     data: "2026-09-18",
     inicio: "08:30",
@@ -334,7 +334,7 @@ export const aulas: Aula[] = [
       "Colonização e circulação transatlântica de imagens",
     ],
     blocos: [
-      { duracao: "60 min", titulo: "Super-aula: Renascimento, Maneirismo e Barroco" },
+      { duracao: "60 min", titulo: "Aula teórica: Renascimento, Maneirismo e Barroco" },
       { duracao: "10 min", titulo: "Intervalo" },
       { duracao: "80 min", titulo: "Ateliê das três versões" },
       { duracao: "30 min", titulo: "Compartilhamento e trocas do Projeto 1" },
@@ -438,7 +438,7 @@ export const aulas: Aula[] = [
   {
     numero: 10,
     slug: "10",
-    titulo: "Super-aula 4",
+    titulo: "Aula teórica 4",
     subtitulo: "Modernidades, indústria e rupturas",
     data: "2026-10-09",
     inicio: "08:30",
@@ -463,7 +463,7 @@ export const aulas: Aula[] = [
       "Ornamento e indústria",
     ],
     blocos: [
-      { duracao: "60 min", titulo: "Super-aula: modernidades, indústria e rupturas" },
+      { duracao: "60 min", titulo: "Aula teórica: modernidades, indústria e rupturas" },
       { duracao: "10 min", titulo: "Intervalo" },
       { duracao: "70 min", titulo: "Ateliê: mapa de relações" },
       { duracao: "40 min", titulo: "Orientação do Projeto 2" },
@@ -513,7 +513,7 @@ export const aulas: Aula[] = [
   {
     numero: 12,
     slug: "12",
-    titulo: "Super-aula 5",
+    titulo: "Aula teórica 5",
     subtitulo: "Vanguardas, modernismos e contemporaneidade",
     data: "2026-10-23",
     inicio: "08:30",
@@ -537,7 +537,7 @@ export const aulas: Aula[] = [
       "Autoria e inteligência artificial",
     ],
     blocos: [
-      { duracao: "60 min", titulo: "Super-aula: vanguardas, modernismos e contemporaneidade" },
+      { duracao: "60 min", titulo: "Aula teórica: vanguardas, modernismos e contemporaneidade" },
       { duracao: "10 min", titulo: "Intervalo" },
       { duracao: "70 min", titulo: "Ateliê: do atlas à regra projetual" },
       { duracao: "40 min", titulo: "Primeira proposta projetual do Projeto 2" },
@@ -706,7 +706,7 @@ export function formatarData(iso: string, longo = true): string {
 export const tipoLabel: Record<Aula["tipo"], string> = {
   abertura: "Abertura",
   campo: "Aula de campo",
-  "super-aula": "Super-aula",
+  "super-aula": "Aula teórica",
   podcast: "Podcast",
   exposicao: "Exposição",
 };
