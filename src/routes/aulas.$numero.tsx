@@ -1,6 +1,28 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { ArrowLeft, ArrowRight, CalendarDays, Clock, MapPin } from "lucide-react";
+import { useEffect, useMemo, useState } from "react";
+import { ArrowLeft, ArrowRight, BookOpen, CalendarDays, Check, Clock, ExternalLink, FolderOpen, Headphones, MapPin } from "lucide-react";
 import { aulas, formatarData, getAula, tipoLabel, type Aula } from "@/data/aulas";
+
+
+const PASTA_PODCASTS = "https://drive.google.com/drive/folders/1hiylfanA_zHAY9gtMd0V8qlQrfW1I573?usp=drive_link";
+
+const dialogosContemporaneos: Record<number, string[]> = {
+  1: ["Donna Haraway — experiência situada e mundos compartilhados", "Dorothy E. Smith — cotidiano, experiência e produção de conhecimento"],
+  2: ["Donna Haraway — natureza-cultura e Chthuluceno", "Yuk Hui — cosmotécnica e pluralidade tecnológica"],
+  3: ["Linda Nochlin — crítica feminista ao cânone", "Griselda Pollock — diferenças e histórias feministas da arte"],
+  4: ["Hans Belting — antropologia da imagem", "Ariella Azoulay — história potencial e regimes de visualidade"],
+  5: ["Ernst Gombrich em confronto com bell hooks", "Patricia Hill Collins — olhar, poder e conhecimento situado"],
+  6: ["Aby Warburg — sobrevivência das imagens", "Georges Didi-Huberman — montagem, memória e anacronismo"],
+  7: ["Silvia Federici — corpos, trabalho e modernidade", "Angela Davis — raça, gênero e cultura visual"],
+  8: ["Achille Mbembe — colonialidade e necropolítica", "Ailton Krenak — crítica à separação entre humanidade e natureza"],
+  9: ["Lélia Gonzalez — amefricanidade", "Aníbal Quijano — colonialidade do poder"],
+  10: ["Néstor García Canclini — culturas híbridas", "Jesús Martín-Barbero — mediações culturais"],
+  11: ["Donna Haraway — ciborgues e fronteiras", "Rosi Braidotti — pós-humanismo crítico"],
+  12: ["Jacques Rancière — espectador emancipado", "Claire Bishop — participação e dissenso"],
+  13: ["Yuk Hui — cosmotécnica", "Arturo Escobar — design para o pluriverso"],
+  14: ["Dorothy E. Smith — mundo cotidiano como problemática", "Patricia Hill Collins — epistemologias situadas"],
+  15: ["Débora Aita Gasparetto — imagens fantasmas", "Donna Haraway — permanecer com o problema"],
+};
 
 export const Route = createFileRoute("/aulas/$numero")({
   loader: ({ params }) => {
@@ -56,6 +78,28 @@ function PaginaAula() {
   const anterior = aulas.find((a) => a.numero === aula.numero - 1);
   const proxima = aulas.find((a) => a.numero === aula.numero + 1);
   const temas = aula.conteudos ?? aula.conceitos;
+  const [visitadas, setVisitadas] = useState<number[]>([]);
+  const [ouvidos, setOuvidos] = useState<string[]>([]);
+
+  useEffect(() => {
+    const visitasSalvas = JSON.parse(localStorage.getItem("ha1-aulas-visitadas") || "[]") as number[];
+    const novasVisitas = Array.from(new Set([...visitasSalvas, aula.numero])).sort((a, b) => a - b);
+    localStorage.setItem("ha1-aulas-visitadas", JSON.stringify(novasVisitas));
+    setVisitadas(novasVisitas);
+
+    const podcastsSalvos = JSON.parse(localStorage.getItem("ha1-podcasts-ouvidos") || "[]") as string[];
+    setOuvidos(podcastsSalvos);
+  }, [aula.numero]);
+
+  const progresso = useMemo(() => Math.round((visitadas.length / aulas.length) * 100), [visitadas.length]);
+
+  function alternarPodcast(chave: string) {
+    setOuvidos((atuais) => {
+      const proximos = atuais.includes(chave) ? atuais.filter((item) => item !== chave) : [...atuais, chave];
+      localStorage.setItem("ha1-podcasts-ouvidos", JSON.stringify(proximos));
+      return proximos;
+    });
+  }
 
   return (
     <article>
@@ -83,6 +127,16 @@ function PaginaAula() {
               <MapPin className="h-4 w-4 text-accent" /> {aula.local}
             </li>
           </ul>
+
+          <div className="mt-8 rounded-sm border border-border bg-card/70 p-4">
+            <div className="flex items-center justify-between gap-4 text-sm">
+              <span>{visitadas.length} de {aulas.length} aulas visitadas</span>
+              <span className="font-semibold text-accent">{progresso}%</span>
+            </div>
+            <div className="mt-3 h-2 overflow-hidden rounded-full bg-secondary" aria-label={`Progresso: ${progresso}%`}>
+              <div className="h-full rounded-full bg-accent transition-all" style={{ width: `${progresso}%` }} />
+            </div>
+          </div>
 
         </div>
       </header>
@@ -127,6 +181,88 @@ function PaginaAula() {
             </dl>
           </Secao>
         )}
+
+        <Secao titulo="Diálogos contemporâneos">
+          <div className="grid gap-3 sm:grid-cols-2">
+            {(dialogosContemporaneos[aula.numero] ?? []).map((dialogo) => (
+              <div key={dialogo} className="rounded-sm border border-border bg-card p-5 leading-relaxed">
+                {dialogo}
+              </div>
+            ))}
+          </div>
+        </Secao>
+
+        {aula.podcasts?.length ? (
+          <Secao titulo="Podcasts para esta aula">
+            <div className="grid gap-4">
+              {aula.podcasts.map((podcast) => {
+                const chave = `${aula.numero}-${podcast.titulo}`;
+                const ouvido = ouvidos.includes(chave);
+                return (
+                  <article key={chave} className="rounded-sm border border-border bg-card p-5">
+                    <div className="flex items-start gap-3">
+                      <Headphones className="mt-1 h-6 w-6 shrink-0 text-accent" aria-hidden="true" />
+                      <div className="min-w-0 flex-1">
+                        <p className="text-muted-foreground">{podcast.autor}</p>
+                        <h3 className="mt-1 text-2xl">{podcast.titulo}</h3>
+                        <p className="mt-2 leading-relaxed text-muted-foreground">{podcast.descricao}</p>
+                      </div>
+                    </div>
+                    <div className="mt-5 flex flex-wrap gap-3">
+                      <a
+                        href={PASTA_PODCASTS}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-2 rounded-sm bg-accent px-4 py-3 font-semibold text-accent-foreground transition-opacity hover:opacity-90"
+                      >
+                        <FolderOpen className="h-5 w-5" /> Abrir pasta de podcasts
+                        <ExternalLink className="h-4 w-4" />
+                      </a>
+                      <button
+                        type="button"
+                        onClick={() => alternarPodcast(chave)}
+                        className="inline-flex items-center gap-2 rounded-sm border border-border px-4 py-3 transition-colors hover:bg-secondary"
+                        aria-pressed={ouvido}
+                      >
+                        {ouvido ? <Check className="h-5 w-5 text-accent" /> : <Headphones className="h-5 w-5" />}
+                        {ouvido ? "Podcast marcado como ouvido" : "Marcar como ouvido"}
+                      </button>
+                    </div>
+                    <p className="mt-3 text-sm text-muted-foreground">Na pasta do Drive, procure pelo arquivo correspondente a {podcast.autor}.</p>
+                  </article>
+                );
+              })}
+            </div>
+          </Secao>
+        ) : null}
+
+        {aula.materiais?.length ? (
+          <Secao titulo="Leituras e materiais">
+            <div className="grid gap-4">
+              {aula.materiais.map((material) => (
+                <a
+                  key={material.url}
+                  href={material.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group flex gap-4 rounded-sm border border-border bg-card p-5 transition-colors hover:border-accent"
+                >
+                  <BookOpen className="mt-1 h-5 w-5 shrink-0 text-accent" aria-hidden="true" />
+                  <span className="min-w-0 flex-1">
+                    <span className="text-sm text-muted-foreground">{material.tipo}</span>
+                    <span className="mt-1 flex items-center gap-2 text-xl">
+                      {material.titulo}
+                      <ExternalLink className="h-4 w-4 shrink-0" aria-hidden="true" />
+                    </span>
+                    {material.descricao ? (
+                      <span className="mt-2 block leading-relaxed text-muted-foreground">{material.descricao}</span>
+                    ) : null}
+                  </span>
+                </a>
+              ))}
+            </div>
+          </Secao>
+        ) : null}
 
         {aula.objetivos?.length ? (
           <Secao titulo="Objetivos">
