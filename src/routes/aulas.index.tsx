@@ -1,6 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { aulas, formatarData, tipoLabel } from "@/data/aulas";
-import { BotaoAgenda } from "@/components/BotaoAgenda";
 
 export const Route = createFileRoute("/aulas/")({
   head: () => ({
@@ -30,9 +29,6 @@ function IndiceAulas() {
         Uma aula por sexta-feira de manhã, das 08h30 às 11h30, de 07 de agosto a 27 de novembro de 2026.
         A ordem é cronológica e cada página traz a organização minuto a minuto do encontro.
       </p>
-      <div className="mt-8">
-        <BotaoAgenda />
-      </div>
 
       <div className="salon-wall mt-14 rounded-sm border border-border p-5 sm:p-8">
         <div className="columns-1 gap-6 sm:columns-2 lg:columns-3">
