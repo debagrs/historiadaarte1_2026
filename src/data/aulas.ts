@@ -1,3 +1,17 @@
+export type PodcastAula = {
+  titulo: string;
+  autor: string;
+  arquivo: string;
+  descricao: string;
+};
+
+export type MaterialAula = {
+  titulo: string;
+  tipo: string;
+  url: string;
+  descricao?: string;
+};
+
 export type BlocoTempo = {
   duracao: string;
   titulo: string;
@@ -27,6 +41,8 @@ export type Aula = {
   tarefas: string[];
   projetos?: string[];
   observacao?: string;
+  podcasts?: PodcastAula[];
+  materiais?: MaterialAula[];
   imagem: string;
   imagemAlt: string;
 };
@@ -97,6 +113,28 @@ export const aulas: Aula[] = [
     ],
     observacao:
       "Dewey funciona muito bem no primeiro encontro porque desloca a ideia de arte como conteúdo distante e a aproxima da experiência concreta do estudante.",
+    podcasts: [
+      {
+        titulo: "Arte como experiência: John Dewey",
+        autor: "John Dewey",
+        arquivo: "/podcasts/dewey.m4a",
+        descricao: "Um percurso sobre experiência estética, cotidiano e aprendizagem pela percepção.",
+      },
+      {
+        titulo: "Imagens fantasmas: história da arte e desenho industrial",
+        autor: "Débora Aita Gasparetto",
+        arquivo: "/podcasts/imagens-fantasmas.m4a",
+        descricao: "Apresentação das imagens que sobrevivem, reaparecem e atravessam a formação em design.",
+      },
+    ],
+    materiais: [
+      {
+        titulo: "História da Arte no Desenho Industrial: imagens fantasmas",
+        tipo: "Livro digital",
+        url: "https://www.ufsm.br/editoras/facos/historia-da-arte-no-desenho-industrial-imagens-fantasmas",
+        descricao: "Livro de Débora Aita Gasparetto que articula história da arte, imagens sobreviventes e formação em Desenho Industrial.",
+      },
+    ],
     imagem: "/aulas/aula-01.jpg",
     imagemAlt: "Composição visual sobre arte como experiência cotidiana",
   },
@@ -152,6 +190,20 @@ export const aulas: Aula[] = [
     ],
     observacao:
       "Conexões históricas: arte rupestre, ornamentação antiga, capitéis, arabescos, manuscritos, Arts and Crafts, Art Nouveau, biomimética, design de superfície e sistemas generativos.",
+    podcasts: [
+      {
+        titulo: "Ficar com o problema: natureza e relações multiespécies",
+        autor: "Donna Haraway",
+        arquivo: "/podcasts/donna-haraway.m4a",
+        descricao: "Uma escuta para pensar natureza e cultura sem separar humanos, animais, técnicas e ambientes.",
+      },
+      {
+        titulo: "Cosmotécnica e pluralidade dos modos de fazer",
+        autor: "Yuk Hui",
+        arquivo: "/podcasts/yuk-hui.m4a",
+        descricao: "Tecnologia, natureza e cultura examinadas a partir de diferentes cosmologias.",
+      },
+    ],
     imagem: "/aulas/aula-02.jpg",
     imagemAlt: "Padrões vegetais e estruturas naturais observadas em um jardim botânico",
   },
@@ -191,6 +243,14 @@ export const aulas: Aula[] = [
     },
     tarefas: ["Selecionar a primeira obra do Projeto 1", "Iniciar a descrição formal anônima"],
     projetos: ["Projeto 1 — seleção da obra e início da descrição formal"],
+    podcasts: [
+      {
+        titulo: "A narrativa clássica da história da arte",
+        autor: "H. W. Janson",
+        arquivo: "/podcasts/janson.m4a",
+        descricao: "Uma introdução crítica à organização cronológica, estilística e canônica da história da arte.",
+      },
+    ],
     imagem: "/aulas/aula-03.jpg",
     imagemAlt: "Formas da antiguidade: pintura rupestre, cerâmica e arquitetura clássica",
   },
@@ -228,6 +288,14 @@ export const aulas: Aula[] = [
       "Entregar duas organizações visuais",
       "Escrever um comentário sobre o que cada método permite ver ou oculta",
       "Preencher a ficha de podcast com verificação de fontes",
+    ],
+    podcasts: [
+      {
+        titulo: "Antropologia da imagem e história da arte",
+        autor: "Hans Belting",
+        arquivo: "/podcasts/hans-belting.m4a",
+        descricao: "As imagens como relações entre corpos, meios, suportes e culturas, para além de uma história apenas dos estilos.",
+      },
     ],
     imagem: "/aulas/aula-04.jpg",
     imagemAlt: "Duas organizações possíveis de um mesmo conjunto de imagens",
@@ -276,6 +344,14 @@ export const aulas: Aula[] = [
     tarefas: ["Finalizar a descrição anônima do Projeto 1"],
     projetos: ["Projeto 1 — finalização da descrição anônima"],
     observacao: "Atenção: 04/09 é o último dia para trancamento total e parcial no calendário da UFSM.",
+    podcasts: [
+      {
+        titulo: "Gombrich e a construção da narrativa histórica",
+        autor: "Ernst Gombrich",
+        arquivo: "/podcasts/gombrich.m4a",
+        descricao: "Uma escuta sobre representação, tradição, percepção e os limites de uma história linear da arte.",
+      },
+    ],
     imagem: "/aulas/aula-05.jpg",
     imagemAlt: "Vitrais, manuscritos iluminados e ornamento geométrico medieval",
   },
@@ -307,6 +383,14 @@ export const aulas: Aula[] = [
         "Cada estudante procura uma imagem contemporânea em que reconheça um gesto, composição, símbolo ou estrutura visual de outro período.",
     },
     tarefas: ["Entregar microatlas com cinco imagens e uma hipótese de sobrevivência", "Ficha de podcast preenchida"],
+    podcasts: [
+      {
+        titulo: "Aby Warburg: sobrevivências, gestos e memória",
+        autor: "Aby Warburg",
+        arquivo: "/podcasts/aby-warburg.m4a",
+        descricao: "Imagens que carregam tempos heterogêneos e retornam em novas constelações visuais.",
+      },
+    ],
     imagem: "/aulas/aula-06.jpg",
     imagemAlt: "Montagem de imagens de tempos diferentes lado a lado",
   },
@@ -474,6 +558,14 @@ export const aulas: Aula[] = [
     },
     tarefas: ["Definir pergunta, recorte e imagem disparadora do atlas"],
     projetos: ["Projeto 2 — orientação da pergunta, recorte e imagem disparadora"],
+    podcasts: [
+      {
+        titulo: "Culturas híbridas e modernidades latino-americanas",
+        autor: "Néstor García Canclini",
+        arquivo: "/podcasts/nestor-garcia-canclini.m4a",
+        descricao: "Modernização, consumo, cultura popular e cruzamentos entre tradição, indústria e mediação cultural.",
+      },
+    ],
     imagem: "/aulas/aula-10.jpg",
     imagemAlt: "Industrialização, fotografia e a cidade moderna do século XIX",
   },
@@ -549,6 +641,14 @@ export const aulas: Aula[] = [
     },
     tarefas: ["Formular a regra projetual", "Apresentar a primeira proposta projetual"],
     projetos: ["Projeto 2 — primeira proposta projetual"],
+    podcasts: [
+      {
+        titulo: "O espectador emancipado e a partilha do sensível",
+        autor: "Jacques Rancière",
+        arquivo: "/podcasts/jacques-ranciere.m4a",
+        descricao: "Arte, política, participação e emancipação para pensar as experiências contemporâneas.",
+      },
+    ],
     imagem: "/aulas/aula-12.jpg",
     imagemAlt: "Colagem construtivista e linguagem gráfica das vanguardas",
   },
@@ -630,6 +730,14 @@ export const aulas: Aula[] = [
     projetos: ["Projeto 2 — finalização, texto e preparação da exposição"],
     observacao:
       "Após este encontro há duas sextas sem aula: 13/11 (semana da JAI) e 20/11 (feriado da Consciência Negra). Use o intervalo para a produção final.",
+    podcasts: [
+      {
+        titulo: "O mundo cotidiano como problemática",
+        autor: "Dorothy E. Smith",
+        arquivo: "/podcasts/dorothy-smith.m4a",
+        descricao: "Uma perspectiva feminista situada para investigar quem produz as narrativas e quais experiências ficam invisíveis.",
+      },
+    ],
     imagem: "/aulas/aula-14.jpg",
     imagemAlt: "Mapa-múndi de referências visuais e revisão curatorial",
   },
@@ -673,6 +781,22 @@ export const aulas: Aula[] = [
     },
     tarefas: ["Montar o trabalho na exposição", "Realizar a avaliação por pares", "Entregar o diário de processo completo"],
     projetos: ["Projeto 2 — apresentação final e exposição coletiva"],
+    podcasts: [
+      {
+        titulo: "Imagens fantasmas: síntese e continuidade",
+        autor: "Débora Aita Gasparetto",
+        arquivo: "/podcasts/imagens-fantasmas.m4a",
+        descricao: "Retomada do percurso da disciplina e das sobrevivências visuais percebidas nos projetos finais.",
+      },
+    ],
+    materiais: [
+      {
+        titulo: "História da Arte no Desenho Industrial: imagens fantasmas",
+        tipo: "Livro digital",
+        url: "https://www.ufsm.br/editoras/facos/historia-da-arte-no-desenho-industrial-imagens-fantasmas",
+        descricao: "Livro de Débora Aita Gasparetto que articula história da arte, imagens sobreviventes e formação em Desenho Industrial.",
+      },
+    ],
     imagem: "/aulas/aula-15.jpg",
     imagemAlt: "Exposição coletiva de atlas visuais em painéis",
   },
