@@ -187,3 +187,30 @@
 }
 
 .art-frame img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+
+/* Acessibilidade tipográfica: nenhum texto abaixo de 16 px no mobile
+   e 18 px no desktop. Títulos mantêm suas escalas maiores. */
+@layer base {
+  html { font-size: 16px; }
+  body { font-size: 1rem; line-height: 1.65; }
+
+  @media (min-width: 768px) {
+    html { font-size: 18px; }
+  }
+}
+
+/* Neutraliza utilitários menores usados no layout original. */
+.text-xs,
+.text-sm,
+.text-base,
+.text-\[11px\],
+.text-\[0\.7rem\] {
+  font-size: 1rem !important;
+}
+
+/* Mantém os rótulos editoriais legíveis sem perder espaçamento e hierarquia. */
+.text-eyebrow {
+  font-size: 1rem;
+  line-height: 1.45;
+}
