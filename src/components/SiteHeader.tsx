@@ -1,145 +1,112 @@
-import { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { Menu, Moon, Sun, Globe } from "lucide-react";
-import { useI18n } from "@/lib/i18n";
+import { useState } from "react";
+import { ExternalLink, Menu, Moon, Sun, X } from "lucide-react";
+import { aulas } from "@/data/aulas";
 import { useTheme } from "@/lib/theme";
-import { useAuth } from "@/lib/auth";
-import { Button } from "@/components/ui/button";
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
-import { cn } from "@/lib/utils";
 
-function NavLinks({
-  onNavigate,
-  showReviewer,
-}: {
-  onNavigate?: () => void;
-  showReviewer?: boolean;
-}) {
-  const { t } = useI18n();
-  const links = [
-    { to: "/acervo", label: t("nav.acervo") },
-    { to: "/mapa", label: "Mapa" },
-    { to: "/rede", label: "Rede" },
-    { to: "/colabore", label: "Contribua" },
-    { to: "/atlas", label: t("nav.atlas") },
-    ...(showReviewer
-      ? [
-          { to: "/curadoria/imagens", label: "Curadoria de imagens" } as const,
-          { to: "/curadoria/contribuicoes", label: "Contribuições" } as const,
-        ]
-      : []),
-  ] as const;
-  return (
-    <>
-      {links.map((l) => (
-        <Link
-          key={l.to}
-          to={l.to}
-          onClick={onNavigate}
-          className="text-sm text-muted-foreground transition-colors hover:text-foreground [&.active]:text-foreground"
-        >
-          {l.label}
-        </Link>
-      ))}
-    </>
-  );
-}
+const paginas = [
+  { to: "/", label: "Início" },
+  { to: "/aulas", label: "Aulas" },
+  { to: "/projetos", label: "Projetos" },
+  { to: "/avaliacao", label: "Avaliação" },
+  { to: "/metodologia", label: "Metodologia" },
+  { to: "/bibliografia", label: "Bibliografia" },
+] as const;
 
+const constelacoesUrl = "https://constelacoes-gray.vercel.app/";
 
 export function SiteHeader() {
-  const { t, locale, setLocale } = useI18n();
+  const [aberto, setAberto] = useState(false);
   const { theme, toggleTheme } = useTheme();
-  const { session, isReviewer } = useAuth();
-  const [open, setOpen] = useState(false);
-
-
-  const utility = (
-    <div className="flex items-center gap-1">
-      <Button
-        variant="ghost"
-        size="icon"
-        aria-label="Idioma"
-        onClick={() => setLocale(locale === "pt" ? "en" : "pt")}
-      >
-        <Globe className="h-4 w-4" />
-        <span className="ml-1 text-xs uppercase">{locale}</span>
-      </Button>
-      <Button
-        variant="ghost"
-        size="icon"
-        aria-label="Tema"
-        onClick={toggleTheme}
-      >
-        {theme === "dark" ? (
-          <Sun className="h-4 w-4" />
-        ) : (
-          <Moon className="h-4 w-4" />
-        )}
-      </Button>
-    </div>
-  );
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur-md">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
-        <Link to="/" className="flex min-w-0 items-baseline gap-2">
-          <span className="font-display text-xl font-semibold tracking-tight text-foreground">
-            {t("app.name")}
-          </span>
-          <span className="hidden truncate text-eyebrow text-muted-foreground sm:inline">
-            {t("app.tagline")}
-          </span>
+    <header className="sticky top-0 z-50 border-b border-border/70 bg-background/92 backdrop-blur-xl">
+      <div className="mx-auto flex min-h-16 max-w-6xl items-center justify-between gap-4 px-5 py-3">
+        <Link to="/" className="group flex min-w-0 items-baseline gap-2">
+          <span className="truncate font-display text-xl font-semibold leading-none">História da Arte I</span>
+          <span className="hidden text-eyebrow text-muted-foreground sm:inline">UFSM · 2026/2</span>
         </Link>
 
-        {/* Desktop */}
-        <nav className="hidden items-center gap-6 md:flex">
-          <NavLinks showReviewer={isReviewer} />
-        </nav>
-        <div className="hidden items-center gap-2 md:flex">
-          {utility}
-          <Button asChild size="sm" variant={session ? "outline" : "default"}>
-            <Link to={session ? "/atlas" : "/auth"}>
-              {session ? t("nav.painel") : t("nav.signin")}
+        <nav className="hidden items-center gap-1 lg:flex">
+          {paginas.map((p) => (
+            <Link
+              key={p.to}
+              to={p.to}
+              activeOptions={{ exact: p.to === "/" }}
+              className="rounded-sm px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground data-[status=active]:text-foreground data-[status=active]:underline data-[status=active]:decoration-primary data-[status=active]:decoration-2 data-[status=active]:underline-offset-8"
+            >
+              {p.label}
             </Link>
-          </Button>
-        </div>
+          ))}
+          <a
+            href={constelacoesUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-1 rounded-sm px-3 py-1.5 text-sm text-primary transition-colors hover:bg-secondary"
+          >
+            Constelações <ExternalLink className="h-3.5 w-3.5" />
+          </a>
+        </nav>
 
-        {/* Mobile */}
-        <div className="flex items-center gap-1 md:hidden">
-          {utility}
-          <Sheet open={open} onOpenChange={setOpen}>
-            <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" aria-label="Menu">
-                <Menu className="h-5 w-5" />
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="right" className="w-72">
-              <SheetHeader>
-                <SheetTitle className="font-display text-left">
-                  {t("app.name")}
-                </SheetTitle>
-              </SheetHeader>
-              <nav className="mt-8 flex flex-col gap-5">
-                <NavLinks showReviewer={isReviewer} onNavigate={() => setOpen(false)} />
-                <Button asChild className={cn("mt-2 w-full")}>
-                  <Link
-                    to={session ? "/atlas" : "/auth"}
-                    onClick={() => setOpen(false)}
-                  >
-                    {session ? t("nav.painel") : t("nav.signin")}
-                  </Link>
-                </Button>
-              </nav>
-            </SheetContent>
-          </Sheet>
+        <div className="flex items-center gap-1">
+          <button
+            type="button"
+            className="rounded-sm border border-border p-2 transition-colors hover:bg-secondary"
+            onClick={toggleTheme}
+            aria-label={theme === "dark" ? "Ativar modo claro" : "Ativar modo escuro"}
+          >
+            {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+          </button>
+          <button
+            type="button"
+            className="rounded-sm border border-border p-2 lg:hidden"
+            onClick={() => setAberto((v) => !v)}
+            aria-label="Abrir menu"
+          >
+            {aberto ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+          </button>
         </div>
       </div>
+
+      {aberto && (
+        <div className="max-h-[78vh] overflow-y-auto border-t border-border px-5 pb-6 lg:hidden">
+          <div className="grid gap-1 py-3 sm:grid-cols-2">
+            {paginas.map((p) => (
+              <Link
+                key={p.to}
+                to={p.to}
+                onClick={() => setAberto(false)}
+                className="rounded-sm px-3 py-2.5 text-sm hover:bg-secondary"
+              >
+                {p.label}
+              </Link>
+            ))}
+            <a
+              href={constelacoesUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-2 rounded-sm px-3 py-2.5 text-sm text-primary hover:bg-secondary"
+            >
+              Abrir Constelações <ExternalLink className="h-4 w-4" />
+            </a>
+          </div>
+          <p className="border-t border-border pt-4 text-eyebrow text-muted-foreground">Encontros</p>
+          <div className="mt-2 grid gap-1 sm:grid-cols-2">
+            {aulas.map((a) => (
+              <Link
+                key={a.slug}
+                to="/aulas/$numero"
+                params={{ numero: a.slug }}
+                onClick={() => setAberto(false)}
+                className="flex gap-3 rounded-sm px-3 py-2 hover:bg-secondary"
+              >
+                <span className="font-display text-lg text-primary">{String(a.numero).padStart(2, "0")}</span>
+                <span className="text-sm leading-snug">{a.titulo}</span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
     </header>
   );
 }
