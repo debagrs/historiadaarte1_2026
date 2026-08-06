@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { ArrowLeft, ArrowRight, BookOpen, CalendarDays, Check, Clock, ExternalLink, FolderOpen, Headphones, MapPin } from "lucide-react";
 import { aulas, formatarData, getAula, tipoLabel, type Aula } from "@/data/aulas";
 
@@ -78,20 +78,12 @@ function PaginaAula() {
   const anterior = aulas.find((a) => a.numero === aula.numero - 1);
   const proxima = aulas.find((a) => a.numero === aula.numero + 1);
   const temas = aula.conteudos ?? aula.conceitos;
-  const [visitadas, setVisitadas] = useState<number[]>([]);
   const [ouvidos, setOuvidos] = useState<string[]>([]);
 
   useEffect(() => {
-    const visitasSalvas = JSON.parse(localStorage.getItem("ha1-aulas-visitadas") || "[]") as number[];
-    const novasVisitas = Array.from(new Set([...visitasSalvas, aula.numero])).sort((a, b) => a - b);
-    localStorage.setItem("ha1-aulas-visitadas", JSON.stringify(novasVisitas));
-    setVisitadas(novasVisitas);
-
     const podcastsSalvos = JSON.parse(localStorage.getItem("ha1-podcasts-ouvidos") || "[]") as string[];
     setOuvidos(podcastsSalvos);
   }, [aula.numero]);
-
-  const progresso = useMemo(() => Math.round((visitadas.length / aulas.length) * 100), [visitadas.length]);
 
   function alternarPodcast(chave: string) {
     setOuvidos((atuais) => {
@@ -128,15 +120,6 @@ function PaginaAula() {
             </li>
           </ul>
 
-          <div className="mt-8 rounded-sm border border-border bg-card/70 p-4">
-            <div className="flex items-center justify-between gap-4 text-sm">
-              <span>{visitadas.length} de {aulas.length} aulas visitadas</span>
-              <span className="font-semibold text-accent">{progresso}%</span>
-            </div>
-            <div className="mt-3 h-2 overflow-hidden rounded-full bg-secondary" aria-label={`Progresso: ${progresso}%`}>
-              <div className="h-full rounded-full bg-accent transition-all" style={{ width: `${progresso}%` }} />
-            </div>
-          </div>
 
         </div>
       </header>
