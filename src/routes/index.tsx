@@ -122,7 +122,7 @@ function Index() {
               </p>
             </div>
             <a
-              href={import.meta.env.VITE_CONSTELACOES_URL || "https://github.com/debagrs/constalacoes"}
+              href="https://constelacoes-gray.vercel.app/"
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-2 rounded-sm border border-primary px-4 py-2 text-sm text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
