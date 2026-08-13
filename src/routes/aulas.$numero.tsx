@@ -78,35 +78,7 @@ function Secao({ titulo, children }: { titulo: string; children: React.ReactNode
 }
 
 function PaginaAula03Imersiva() {
-  return (
-    <article className="bg-background">
-      <div className="grao border-b border-border">
-        <div className="mx-auto max-w-6xl px-5 py-6">
-          <div className="flex flex-wrap items-center justify-between gap-4">
-            <div>
-              <a href="/aulas/3" className="inline-flex items-center gap-2 text-muted-foreground hover:text-accent">
-                <ArrowLeft className="h-4 w-4" /> Voltar para a Aula 03
-              </a>
-              <p className="mt-3 text-eyebrow text-accent">Aula 03 · apresentação imersiva</p>
-              <h1 className="mt-2 text-3xl leading-tight sm:text-5xl">Das primeiras imagens ao mundo clássico</h1>
-              <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
-                Percurso visual ampliado da aula teórica, com obras, comparações, detalhes, questões críticas e materiais de exploração.
-              </p>
-            </div>
-            <a
-              href="https://constelacoes-gray.vercel.app/"
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-sm border border-accent px-4 py-3 font-semibold text-accent hover:bg-secondary"
-            >
-              Abrir Constelações <ExternalLink className="h-4 w-4" />
-            </a>
-          </div>
-        </div>
-      </div>
-      <Aula03Imersiva />
-    </article>
-  );
+  return <Aula03Imersiva />;
 }
 
 function PaginaAula() {
