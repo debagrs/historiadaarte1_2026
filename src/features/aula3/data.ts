@@ -695,11 +695,11 @@ export const scenes: Scene[] = [
       'Por que os vasos áticos atenienses eram encontrados em tumbas nobres etruscas na Itália?'
     ],
     conceitos: ['Design de Superfície', 'Figuras Negras', 'Exekias', 'Tensão Dramática'],
-    imagemUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Amphora_Achilles_Ajax_Louvre_F204.jpg',
+    imagemUrl: '/aula03/artworks/exekias-aquiles-ajax.jpg',
     imagemAlt: 'Ânfora de figuras negras de Exekias: Aquiles e Ájax jogando dados',
-    imagemFonte: 'Musei Vaticani / Louvre / Wikimedia Commons',
+    imagemFonte: 'Musei Vaticani / Wikimedia Commons',
     imagemLicenca: 'Public Domain',
-    imagemLink: 'https://commons.wikimedia.org/wiki/File:Amphora_Achilles_Ajax_Louvre_F204.jpg',
+    imagemLink: 'https://commons.wikimedia.org/wiki/File:Akhilleus_Aias_MGEt_16757.jpg',
     hotspots: [
       { x: 38, y: 50, label: 'Aquiles com Elmo', description: 'Mantém o elmo na cabeça, indicando sua superioridade hierárquica e seu número maior no jogo de dados.', zoomLevel: 2.7 },
       { x: 62, y: 52, label: 'Ájax com Pés Tensos', description: 'Calcanhares erguidos demonstrando extrema ansiedade física diante do resultado do lance de dados.', zoomLevel: 2.6 },
@@ -865,11 +865,11 @@ export const scenes: Scene[] = [
       'Qual a diferença entre a procissão mítica do Partenon e a procissão de personagens históricos reais do Ara Pacis?'
     ],
     conceitos: ['Pax Augusta', 'Narrativa Histórica Real', 'Família e Dinastia', 'Friso Contínuo'],
-    imagemUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Ara_pacis_1.jpg',
+    imagemUrl: '/aula03/artworks/ara-pacis-processao-sul.jpg',
     imagemAlt: 'Friso processional sul da Ara Pacis Augustae, Roma',
     imagemFonte: 'Museo dell\'Ara Pacis / Wikimedia Commons',
     imagemLicenca: 'CC BY-SA 3.0',
-    imagemLink: 'https://commons.wikimedia.org/wiki/File:Ara_pacis_1.jpg',
+    imagemLink: 'https://commons.wikimedia.org/wiki/File:RomaAraPacis_ProcessioneSudParticolare.jpg',
     hotspots: [
       { x: 35, y: 45, label: 'Augusto e os Sacerdotes', description: 'O imperador velado como Pontifex Maximus liderando o sacrifício cívico.', zoomLevel: 2.5 },
       { x: 68, y: 55, label: 'Crianças da Família Imperial', description: 'Príncipes herdeiros de túnica curta, humanizando a imagem do império e garantindo a continuidade do trono.', zoomLevel: 2.7 }
