@@ -45,24 +45,21 @@ export function Aula03Imersiva() {
   const [showConstellationModal, setShowConstellationModal] = useState(false);
   const [copiedHex, setCopiedHex] = useState<string | null>(null);
 
-  const containerRef = useRef<HTMLDivElement>(null);
   const sectionRefs = useRef<(HTMLElement | null)[]>([]);
 
   // Conteúdo incorporado estaticamente ao site da disciplina.
 
-  // Update current visible index based on scroll
+  // Atualiza a cena ativa usando o scroll normal da página.
+  // A aula não cria mais uma segunda área de rolagem dentro do site.
   useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
-
     const handleScroll = () => {
-      const scrollPos = container.scrollTop + container.clientHeight / 2;
+      const scrollPos = window.scrollY + window.innerHeight / 2;
       let closestIdx = 0;
       let minDistance = Infinity;
 
       sectionRefs.current.forEach((el, index) => {
         if (!el) return;
-        const top = el.offsetTop;
+        const top = el.getBoundingClientRect().top + window.scrollY;
         const distance = Math.abs(top - scrollPos);
         if (distance < minDistance) {
           minDistance = distance;
@@ -73,8 +70,13 @@ export function Aula03Imersiva() {
       setCurrentIndex(closestIdx);
     };
 
-    container.addEventListener('scroll', handleScroll, { passive: true });
-    return () => container.removeEventListener('scroll', handleScroll);
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+    };
   }, [scenes]);
 
   // Keyboard navigation
@@ -131,11 +133,8 @@ export function Aula03Imersiva() {
 
   return (
     <div className="bg-[#FAF8F5] text-[#1C1917] min-h-screen selection:bg-[#A83B24] selection:text-white font-sans antialiased">
-      {/* Main Snap Scroll Container */}
-      <main
-        ref={containerRef}
-        className="h-[calc(100vh-8rem)] min-h-[42rem] overflow-y-auto scroll-smooth"
-      >
+      {/* Fluxo normal da página: sem viewport interno, sem falso rodapé. */}
+      <main className="w-full overflow-visible scroll-smooth">
         {scenes.map((scene, idx) => {
           const isPrologue = scene.ato === 0;
           const isSummary = scene.tipo === 'summary';
@@ -207,8 +206,25 @@ export function Aula03Imersiva() {
                       ))}
                     </div>
 
+                    <div className="pt-3 flex flex-wrap items-center justify-center gap-4 text-sm sm:text-base">
+                      <a
+                        href="/aulas/3"
+                        className="font-semibold text-[#5E584F] underline decoration-[#D9CFC4] underline-offset-4 hover:text-[#A83B24]"
+                      >
+                        Voltar para a Aula 03
+                      </a>
+                      <a
+                        href="https://constelacoes-gray.vercel.app/"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-1.5 font-semibold text-[#A83B24] underline decoration-[#E8C9BF] underline-offset-4 hover:text-[#8F301C]"
+                      >
+                        Abrir Constelações <ArrowUpRight className="h-4 w-4" />
+                      </a>
+                    </div>
+
                     {/* Navigation Buttons */}
-                    <div className="pt-6 flex flex-wrap items-center justify-center gap-3.5">
+                    <div className="pt-4 flex flex-wrap items-center justify-center gap-3.5">
                       <button
                         onClick={() => navigateToIndex(1)}
                         className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-[#A83B24] hover:bg-[#8F301C] text-white font-bold text-base transition-all shadow-md cursor-pointer"
