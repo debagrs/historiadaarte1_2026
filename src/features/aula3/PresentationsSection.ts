@@ -244,7 +244,7 @@ export const PresentationsSection: React.FC = () => {
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#A83B24]">Material complementar</p>
             <h2 className="mt-2 font-serif text-4xl font-semibold text-[#1C1917] sm:text-5xl">Espaços de exploração & lâminas</h2>
-            <p className="mt-3 max-w-3xl leading-relaxed text-[#4A453E]">A apresentação histórica do curso reaparece aqui como percurso navegável: Egito, Mesopotâmia, Grécia e Roma, articulados a arquitetura, escrita, escultura, pintura, materialidade e sistemas de poder.</p>
+            <p className="mt-3 max-w-3xl leading-relaxed text-[#4A453E]">O percurso navegável reúne Egito, Mesopotâmia, Grécia e Roma. A apresentação histórica permanece apenas no Prezi original; o material sobre Arte Antiga e Clássica está disponível abaixo em PDF para consulta e download.</p>
           </div>
           <div className="flex flex-wrap gap-2">
             <a href="https://prezi.com/czjj7i8at52v/pre-historia-da-arte/" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-sm border border-[#A83B24] px-4 py-2 font-semibold text-[#A83B24] hover:bg-[#FAF2EE]">Prezi original <ExternalLink className="h-4 w-4" /></a>
@@ -279,11 +279,11 @@ export const PresentationsSection: React.FC = () => {
           <a href="https://artsandculture.google.com/" target="_blank" rel="noreferrer" className="rounded-xl border border-[#E8E2D8] bg-white p-5 transition hover:border-[#A83B24]">
             <Sparkles className="h-6 w-6 text-[#A83B24]" /><h3 className="mt-3 font-serif text-2xl font-semibold">Google Arts & Culture</h3><p className="mt-2 text-[#5E584F]">Amplie o percurso com acervos, exposições digitais e imagens em alta resolução.</p>
           </a>
-          <a href="/aula03/arte-antiga-e-classica.pdf" download className="rounded-xl border border-[#E8E2D8] bg-white p-5 transition hover:border-[#A83B24]">
+          <a href="/aula03/arte-antiga-e-classica.pdf" target="_blank" rel="noreferrer" className="rounded-xl border border-[#E8E2D8] bg-white p-5 transition hover:border-[#A83B24]">
             <Presentation className="h-6 w-6 text-[#A83B24]" />
             <h3 className="mt-3 font-serif text-2xl font-semibold">Apresentação sobre Arte Antiga e Clássica</h3>
             <p className="mt-2 text-[#5E584F]">Material em PDF sobre Arte Egípcia, Mesopotâmica, Grega e Romana, disponível para baixar e consultar durante a aula.</p>
-            <span className="mt-4 inline-flex items-center gap-2 font-semibold text-[#A83B24]">Baixar PDF <Download className="h-4 w-4" /></span>
+            <span className="mt-4 inline-flex items-center gap-2 font-semibold text-[#A83B24]">Abrir / baixar PDF <Download className="h-4 w-4" /></span>
           </a>
         </div>
       </div>
