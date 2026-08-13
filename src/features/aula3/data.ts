@@ -56,7 +56,7 @@ export const scenes: Scene[] = [
       'Como a rugosidade do suporte rochoso dialoga com a iluminação do fogo à noite?'
     ],
     conceitos: ['Suporte Rochoso', 'Gesto', 'Tradição Nordeste', 'Memória Coletiva'],
-    imagemUrl: '/aula03/artworks/capivara.jpg',
+    imagemUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Pinturas_rupestres_serra_da_capivara.jpg',
     imagemAlt: 'Pinturas rupestres na Serra da Capivara, Piauí, Brasil',
     imagemFonte: 'Fundação Museu do Homem Americano (FUMDHAM) / Wikimedia Commons',
     imagemLicenca: 'CC BY-SA 4.0',
@@ -98,7 +98,7 @@ export const scenes: Scene[] = [
       'Como a arte preserva a memória de ecossistemas extintos?'
     ],
     conceitos: ['Paisagem Mutável', 'África Pré-Dinástica', 'Corpo Simbólico', 'Cosmologia'],
-    imagemUrl: '/aula03/artworks/tassili.jpg',
+    imagemUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/African_cave_paintings.jpg',
     imagemAlt: 'Pintura rupestre em Tassili n\'Ajjer, Argélia',
     imagemFonte: 'UNESCO / Wikimedia Commons',
     imagemLicenca: 'Public Domain',
@@ -139,7 +139,7 @@ export const scenes: Scene[] = [
       'O que acontece quando a luz da tocha se movimenta diante da pintura?'
     ],
     conceitos: ['Espaço Imersivo', 'Perspectiva Torcida', 'Percepção Cinética', 'Rito Subterrâneo'],
-    imagemUrl: '/aula03/artworks/lascaux.jpg',
+    imagemUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Lascaux_painting.jpg',
     imagemAlt: 'Pinturas parietais na Sala dos Touros em Lascaux, França',
     imagemFonte: 'Centre National de Préhistoire / Wikimedia Commons',
     imagemLicenca: 'Public Domain',
@@ -202,7 +202,7 @@ export const scenes: Scene[] = [
       'O que a procedência do calcário (a centenas de quilômetros de distância) nos diz sobre redes de circulação no Paleolítico?'
     ],
     conceitos: ['Corpo Gravetense', 'Portabilidade', 'Crítica Feminista', 'Objeto Ritual'],
-    imagemUrl: '/aula03/artworks/willendorf.jpg',
+    imagemUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Venus_of_Willendorf_frontview.jpg',
     imagemAlt: 'Mulher de Willendorf, vista frontal',
     imagemFonte: 'Naturhistorisches Museum Wien / Wikimedia Commons',
     imagemLicenca: 'CC BY-SA 4.0',
@@ -245,7 +245,7 @@ export const scenes: Scene[] = [
       'Por que o complexo foi intencionalmente soterrado com terra ao final de seu ciclo de uso?'
     ],
     conceitos: ['Monumento', 'Espaço Sagrado', 'Revolução Simbólica', 'Arquitetura Neolítica'],
-    imagemUrl: '/aula03/artworks/gobekli.jpg',
+    imagemUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Göbekli_Tepe,_Urfa.jpg',
     imagemAlt: 'Escavações dos pilares em T de Göbekli Tepe, Turquia',
     imagemFonte: 'Deutsches Archäologisches Institut / Wikimedia Commons',
     imagemLicenca: 'CC BY-SA 3.0',
@@ -308,7 +308,7 @@ export const scenes: Scene[] = [
       'Como a geometrização do corpo facilita a produção seriada em oficinas templárias?'
     ],
     conceitos: ['Olhar Votivo', 'Substituição Vicária', 'Hierarquia Visual', 'Cidades-Estado'],
-    imagemUrl: '/aula03/artworks/tell-asmar.jpg',
+    imagemUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Sumerian_Status_from_Tell_Asmar,_part_of_the_Tell_Asmar_Hoard.jpg',
     imagemAlt: 'Estatuetas votivas sumerianas de Tell Asmar, Mesopotâmia',
     imagemFonte: 'Oriental Institute of Chicago / Wikimedia Commons',
     imagemLicenca: 'Public Domain',
@@ -350,7 +350,7 @@ export const scenes: Scene[] = [
       'O que a presença de Lápis-lazúli do Afeganistão em Ur revela sobre o mundo antigo?'
     ],
     conceitos: ['Registros Visuais', 'Escala Hierárquica', 'Comércio Global Arcaico', 'Narrativa de Poder'],
-    imagemUrl: '/aula03/artworks/standard-ur.jpg',
+    imagemUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Standard_of_ur.jpg',
     imagemAlt: 'O Estandarte de Ur, Painel da Paz e da Guerra, Suméria',
     imagemFonte: 'British Museum / Wikimedia Commons',
     imagemLicenca: 'Public Domain',
@@ -391,7 +391,7 @@ export const scenes: Scene[] = [
       'Qual o papel da escrita cuneiforme no verso do disco para garantir a imortalidade do seu nome?'
     ],
     conceitos: ['Autoria Primordial', 'Enheduanna', 'Gênero e Poder', 'Epigrafia'],
-    imagemUrl: '/aula03/artworks/enheduanna.jpg',
+    imagemUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Disk_of_Enheduanna.JPG',
     imagemAlt: 'Disco de alabastro da Alta Sacerdotisa Enheduanna, Ur, Mesopotâmia',
     imagemFonte: 'Penn Museum / Wikimedia Commons',
     imagemLicenca: 'Public Domain',
@@ -455,7 +455,7 @@ export const scenes: Scene[] = [
       'Por que a cabeça é de perfil, mas o olho é desenhado de frente?'
     ],
     conceitos: ['Lei da Frontalidade', 'Cânone Egípcio', 'Unificação Política', 'Iconografia do Poder'],
-    imagemUrl: '/aula03/artworks/narmer.jpg',
+    imagemUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Narmer_Palette.jpg',
     imagemAlt: 'Paleta de Narmer, verso e frente, Museu Egípcio do Cairo',
     imagemFonte: 'Egyptian Museum Cairo / Wikimedia Commons',
     imagemLicenca: 'Public Domain',
@@ -497,7 +497,7 @@ export const scenes: Scene[] = [
       'O que resta do impacto visual sabendo que as pirâmides eram cobertas de calcário branco reluzente com pontas de eletro dourado?'
     ],
     conceitos: ['Escala Monumental', 'Engenharia de Estado', 'Geometria Cósmica', 'Necrópole'],
-    imagemUrl: '/aula03/artworks/gize.jpg',
+    imagemUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Kheops-Pyramid.jpg',
     imagemAlt: 'A Grande Pirâmide de Quéops no platô de Gizé, Egito',
     imagemFonte: 'Wikimedia Commons',
     imagemLicenca: 'CC BY-SA 3.0',
@@ -539,7 +539,7 @@ export const scenes: Scene[] = [
       'O que a ausência intencional do olho esquerdo nos ensina sobre o processo de design e prototipagem em um ateliê de escultura antigo?'
     ],
     conceitos: ['Restituição e Decolonialidade', 'Amarna', 'Prototipagem de Ateliê', 'Azul Egípcio'],
-    imagemUrl: '/aula03/artworks/nefertiti.jpg',
+    imagemUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nofretete_Neues_Museum.jpg',
     imagemAlt: 'Busto de Nefertiti em exibição no Neues Museum de Berlim',
     imagemFonte: 'Neues Museum Berlin / Wikimedia Commons',
     imagemLicenca: 'CC BY-SA 3.0',
@@ -578,8 +578,8 @@ export const scenes: Scene[] = [
     comparison: {
       titleLeft: 'Estátua Egípcia (ex: Menkaure)',
       titleRight: 'Kouros de Anavyssos',
-      imageLeft: '/aula03/artworks/menkaure.jpg',
-      imageRight: '/aula03/artworks/kroisos.jpg',
+      imageLeft: 'https://commons.wikimedia.org/wiki/Special:FilePath/King_Menkaura_(Mycerinus)_and_queen.jpg',
+      imageRight: 'https://commons.wikimedia.org/wiki/Special:FilePath/Kroisos_Kouros.jpg',
       captionLeft: 'Menkaure (c. 2500 AEC): vestido com saiote real (shendyt), apoiado no pilar dorsal de pedra, olhar focado no além cósmico.',
       captionRight: 'Kroisos (c. 530 AEC): nudez total, sem pilar de sustentação dorsal, sorriso arcaico voltado para o espectador terreno.',
       prompt: 'Compare os pés e os braços: a postura é idêntica, mas o que muda quando o pilar de pedra de apoio às costas é removido e o corpo se desnuda?'
@@ -590,7 +590,7 @@ export const scenes: Scene[] = [
       'O que significa o "sorriso arcaico" nos lábios das estátuas gregas?'
     ],
     conceitos: ['Kouros', 'Sorriso Arcaico', 'Apropriação Cultural', 'Nudez Heroica'],
-    imagemUrl: '/aula03/artworks/kroisos.jpg',
+    imagemUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Kroisos_Kouros.jpg',
     imagemAlt: 'Kouros de Anavyssos (Kroisos), Museu Arqueológico Nacional de Atenas',
     imagemFonte: 'National Archaeological Museum Athens / Wikimedia Commons',
     imagemLicenca: 'CC BY-SA 3.0',
@@ -632,7 +632,7 @@ export const scenes: Scene[] = [
       'Por que a maioria das estátuas gregas que conhecemos são na verdade cópias de mármore feitas por romanos séculos depois?'
     ],
     conceitos: ['Cânone de Policleto', 'Contrapposto', 'Antropometria', 'Exclusão Corporal'],
-    imagemUrl: '/aula03/artworks/doriforo.jpg',
+    imagemUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Doryphoros_MAN_Napoli_Inv6011-2.jpg',
     imagemAlt: 'Doríforo de Policleto, cópia romana em mármore no Museu de Nápoles',
     imagemFonte: 'Museo Archeologico Nazionale di Napoli / Wikimedia Commons',
     imagemLicenca: 'CC BY-SA 3.0',
@@ -695,7 +695,7 @@ export const scenes: Scene[] = [
       'Por que os vasos áticos atenienses eram encontrados em tumbas nobres etruscas na Itália?'
     ],
     conceitos: ['Design de Superfície', 'Figuras Negras', 'Exekias', 'Tensão Dramática'],
-    imagemUrl: '/aula03/artworks/exekias.jpg',
+    imagemUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Amphora_Achilles_Ajax_Louvre_F204.jpg',
     imagemAlt: 'Ânfora de figuras negras de Exekias: Aquiles e Ájax jogando dados',
     imagemFonte: 'Musei Vaticani / Louvre / Wikimedia Commons',
     imagemLicenca: 'Public Domain',
@@ -737,7 +737,7 @@ export const scenes: Scene[] = [
       'Como a mudança técnica de figuras negras para figuras vermelhas expandiu a liberdade do desenhista?'
     ],
     conceitos: ['Figuras Vermelhas', 'Escorço Anatômico', 'Autoria Compartilhada', 'Repatriação de Patrimônio'],
-    imagemUrl: '/aula03/artworks/euphronios.jpg',
+    imagemUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Euphronios_krater_side_A_MET_L.2006.10.jpg',
     imagemAlt: 'Cratera de cálice de Euphronios: Morte de Sarpedon',
     imagemFonte: 'Metropolitan Museum of Art / Museo di Cerveteri / Wikimedia Commons',
     imagemLicenca: 'Public Domain',
@@ -779,7 +779,7 @@ export const scenes: Scene[] = [
       'O Partenon era branco como vemos nas ruínas hoje ou era intensamente colorido e berrante na Antiguidade?'
     ],
     conceitos: ['Ordens Arquitetônicas', 'Éntase e Correção Óptica', 'Mármore Pentélico', 'Policromia Antiga'],
-    imagemUrl: '/aula03/artworks/partenon.jpg',
+    imagemUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/The_Parthenon_in_Athens.jpg',
     imagemAlt: 'Fachada ocidental do Partenon na Acrópole de Atenas',
     imagemFonte: 'Wikimedia Commons',
     imagemLicenca: 'CC BY-SA 2.0',
@@ -823,7 +823,7 @@ export const scenes: Scene[] = [
       'O que a presença de Cupido (filho de Vênus) ao lado do tornozelo de Augusto pretende afirmar sobre a família imperial?'
     ],
     conceitos: ['Propaganda Imperial', 'Retórica Visual', 'Divinização Política', 'Pax Romana'],
-    imagemUrl: '/aula03/artworks/augusto.jpg',
+    imagemUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Statue-Augustus.jpg',
     imagemAlt: 'Estátua de Augusto de Prima Porta nos Museus Vaticanos',
     imagemFonte: 'Musei Vaticani / Wikimedia Commons',
     imagemLicenca: 'CC BY-SA 3.0',
@@ -865,7 +865,7 @@ export const scenes: Scene[] = [
       'Qual a diferença entre a procissão mítica do Partenon e a procissão de personagens históricos reais do Ara Pacis?'
     ],
     conceitos: ['Pax Augusta', 'Narrativa Histórica Real', 'Família e Dinastia', 'Friso Contínuo'],
-    imagemUrl: '/aula03/artworks/ara-pacis.jpg',
+    imagemUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Ara_pacis_1.jpg',
     imagemAlt: 'Friso processional sul da Ara Pacis Augustae, Roma',
     imagemFonte: 'Museo dell\'Ara Pacis / Wikimedia Commons',
     imagemLicenca: 'CC BY-SA 3.0',
@@ -907,7 +907,7 @@ export const scenes: Scene[] = [
       'O que acontece quando chove dentro do Panteão através do óculo aberto de 9 metros?'
     ],
     conceitos: ['Revolução do Concreto', 'Óculo Zenital', 'Espaço Interior Esférico', 'Tecnologia Construtiva'],
-    imagemUrl: '/aula03/artworks/panteao.jpg',
+    imagemUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Pantheon_dome.jpg',
     imagemAlt: 'Cúpula e óculo iluminado do Panteão de Roma',
     imagemFonte: 'Wikimedia Commons',
     imagemLicenca: 'CC BY-SA 3.0',
