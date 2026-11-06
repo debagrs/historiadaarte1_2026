@@ -1,19 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import { Edit3, Copy, Check, Sparkles } from 'lucide-react';
 
-export const ReflectionNotepad: React.FC = () => {
+interface ReflectionNotepadProps {
+  storageKey?: string;
+  prompt?: string;
+}
+
+export const ReflectionNotepad: React.FC<ReflectionNotepadProps> = ({
+  storageKey = 'aula03_reflexao',
+  prompt = 'Como os 5 verbos fundamentais (Marcar, Habitar, Organizar, Normatizar, Governar) transformam o seu olhar para o projeto de design e a cultura material?',
+}) => {
   const [reflection, setReflection] = useState('');
   const [copied, setCopied] = useState(false);
 
   useEffect(() => {
-    const saved = localStorage.getItem('aula03_reflexao');
+    const saved = localStorage.getItem(storageKey);
     if (saved) setReflection(saved);
-  }, []);
+  }, [storageKey]);
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const val = e.target.value;
     setReflection(val);
-    localStorage.setItem('aula03_reflexao', val);
+    localStorage.setItem(storageKey, val);
   };
 
   const handleCopy = () => {
@@ -59,7 +67,7 @@ export const ReflectionNotepad: React.FC = () => {
 
       <div className="space-y-3">
         <label className="block text-xs font-semibold text-[#423C34] leading-relaxed">
-          Como os 5 verbos fundamentais (Marcar, Habitar, Organizar, Normatizar, Governar) transformam o seu olhar para o projeto de design e a cultura material?
+          {prompt}
         </label>
         <textarea
           value={reflection}

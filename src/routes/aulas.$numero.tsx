@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { ArrowLeft, ArrowRight, BookOpen, CalendarDays, Check, Clock, ExternalLink, FolderOpen, Headphones, MapPin } from "lucide-react";
 import { aulas, formatarData, getAula, tipoLabel, type Aula } from "@/data/aulas";
 import { Aula03Imersiva } from "@/features/aula3/Aula03Imersiva";
+import { Aula12Imersiva } from "@/features/aula12/Aula12Imersiva";
 
 
 const PASTA_PODCASTS = "https://drive.google.com/drive/folders/1hiylfanA_zHAY9gtMd0V8qlQrfW1I573?usp=drive_link";
@@ -89,6 +90,10 @@ function PaginaAula() {
     return <PaginaAula03Imersiva />;
   }
 
+  if (aula.numero === 12 && modo === "imersiva") {
+    return <Aula12Imersiva />;
+  }
+
   const anterior = aulas.find((a) => a.numero === aula.numero - 1);
   const proxima = aulas.find((a) => a.numero === aula.numero + 1);
   const temas = aula.conteudos ?? aula.conceitos;
@@ -144,6 +149,20 @@ function PaginaAula() {
               </a>
               <p className="mt-3 max-w-2xl text-muted-foreground">
                 Percurso visual ampliado com obras, comparações, detalhes, questões para discussão e materiais complementares.
+              </p>
+            </div>
+          ) : null}
+
+          {aula.numero === 12 ? (
+            <div className="mt-8">
+              <a
+                href="/aulas/12?modo=imersiva"
+                className="inline-flex items-center gap-2 rounded-sm bg-accent px-5 py-3 font-semibold text-accent-foreground transition-opacity hover:opacity-90"
+              >
+                Abrir apresentação imersiva da Aula 12 <ExternalLink className="h-4 w-4" />
+              </a>
+              <p className="mt-3 max-w-2xl text-muted-foreground">
+                Do Salão de Paris à inteligência artificial: onze atos com obras, comparações, laboratórios interativos, quadro-síntese e a aula gravada.
               </p>
             </div>
           ) : null}
