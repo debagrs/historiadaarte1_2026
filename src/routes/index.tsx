@@ -131,8 +131,8 @@ function Index() {
             </a>
           </div>
 
-          <div className="mt-12 grid grid-cols-2 items-center gap-5 sm:grid-cols-4 lg:grid-cols-6">
-            {aulas.slice(0, 10).map((a, index) => {
+          <div className="mt-12 grid grid-flow-dense grid-cols-2 items-center gap-5 sm:grid-cols-4 lg:grid-cols-6">
+            {aulas.map((a, index) => {
               const tamanhos = [
                 "sm:col-span-2 sm:row-span-2",
                 "",
@@ -163,11 +163,11 @@ function Index() {
                   key={a.slug}
                   to="/aulas/$numero"
                   params={{ numero: a.slug }}
-                  className={`${tamanhos[index]} group`}
+                  className={`${tamanhos[index % tamanhos.length]} group`}
                   aria-label={`Abrir encontro ${a.numero}: ${a.titulo}`}
                 >
                   <figure className={`art-frame ${giros[index % giros.length]}`}>
-                    <div className={`${proporcoes[index]} overflow-hidden bg-muted`}>
+                    <div className={`${proporcoes[index % proporcoes.length]} overflow-hidden bg-muted`}>
                       <img src={a.imagem} alt={a.imagemAlt} loading="lazy" className="transition-transform duration-500 group-hover:scale-[1.03]" />
                     </div>
                     <figcaption className="px-1 pb-1 pt-3 text-center">
